@@ -26,7 +26,7 @@ namespace IdentityPackage.Core
     /// <summary>
     /// Password manager class containing any functions to do with the password
     /// </summary>
-    private readonly PasswordService _passwordManager;
+    private readonly IPasswordService _passwordManager;
 
     /// <summary>
     /// Default Constructor
@@ -35,11 +35,11 @@ namespace IdentityPackage.Core
     /// <param name="logger">Logger used to log</param>
     /// <param name="configuration">Configuration class</param>
     /// <exception cref="ArgumentNullException">Exception thrown when any of the injected classes is null</exception>
-    public IdentityServicesManager(TDbContext context, ILogger<IdentityServicesManager<TUser, TDbContext>> logger)
+    public IdentityServicesManager(TDbContext context, ILogger<IdentityServicesManager<TUser, TDbContext>> logger, IPasswordService passwordService)
     {
       _context = context ?? throw new ArgumentNullException(nameof(context));
       _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-     
+      _passwordManager = passwordService ?? throw new ArgumentNullException(nameof(passwordService));
     }
 
     /// <summary>

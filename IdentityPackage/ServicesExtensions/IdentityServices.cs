@@ -2,13 +2,8 @@
 using IdentityPackage.IdentitityInternalServices;
 using IdentityPackage.Models.Database;
 using IdentityPackage.Models.Interfaces;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace IdentityPackage.ServicesExtensions
 {
@@ -20,9 +15,7 @@ namespace IdentityPackage.ServicesExtensions
       string passwordHashingSalt
       ) where TDbContext : IdentityDbContext<TUser> where TUser : IdentityDbUser
     {
-
-      PasswordService.options = options;
-      PasswordService.salt = passwordHashingSalt;
+      services.AddSingleton<IPasswordService, PasswordService>(provider => new PasswordService(passwordHashingSalt, options));
       services.AddTransient<IIdentityServiceManager<TUser>, IdentityServicesManager<TUser, TDbContext>>();
       return services;
     }

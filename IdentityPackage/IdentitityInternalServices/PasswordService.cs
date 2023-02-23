@@ -1,4 +1,5 @@
 ﻿using IdentityPackage.Models.Database;
+using IdentityPackage.Models.Interfaces;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace IdentityPackage.IdentitityInternalServices
 {
-  internal class PasswordService
+  internal class PasswordService: IPasswordService
   {
 
     private readonly IdentityDbOptions _options;
