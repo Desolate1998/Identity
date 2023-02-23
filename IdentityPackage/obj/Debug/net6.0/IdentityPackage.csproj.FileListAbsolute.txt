@@ -1,0 +1,12 @@
+C:\Source\Socally\IdentityPackage\bin\Debug\net6.0\IdentityPackage.deps.json
+C:\Source\Socally\IdentityPackage\bin\Debug\net6.0\IdentityPackage.dll
+C:\Source\Socally\IdentityPackage\bin\Debug\net6.0\IdentityPackage.pdb
+C:\Source\Socally\IdentityPackage\obj\Debug\net6.0\IdentityPackage.csproj.AssemblyReference.cache
+C:\Source\Socally\IdentityPackage\obj\Debug\net6.0\IdentityPackage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Source\Socally\IdentityPackage\obj\Debug\net6.0\IdentityPackage.AssemblyInfoInputs.cache
+C:\Source\Socally\IdentityPackage\obj\Debug\net6.0\IdentityPackage.AssemblyInfo.cs
+C:\Source\Socally\IdentityPackage\obj\Debug\net6.0\IdentityPackage.csproj.CoreCompileInputs.cache
+C:\Source\Socally\IdentityPackage\obj\Debug\net6.0\IdentityPackage.dll
+C:\Source\Socally\IdentityPackage\obj\Debug\net6.0\refint\IdentityPackage.dll
+C:\Source\Socally\IdentityPackage\obj\Debug\net6.0\IdentityPackage.pdb
+C:\Source\Socally\IdentityPackage\obj\Debug\net6.0\ref\IdentityPackage.dll
