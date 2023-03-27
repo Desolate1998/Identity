@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace IdentityPackage.Models.Attributes
 {
+  /// <summary>
+  /// The user must be authorized for the current endpoint
+  /// </summary>
   public class AuthorizedAttribute : Attribute
   {
     public AuthorizedAttribute()

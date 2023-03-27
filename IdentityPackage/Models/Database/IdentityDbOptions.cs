@@ -33,6 +33,6 @@ namespace IdentityPackage.Models.Database
     /// <summary>
     /// The password validation rules
     /// </summary>
-    public PasswordValidationRule PasswordValidationRules { get; set; }
+    public PasswordValidationRule? PasswordValidationRules { get; set; }
   }
 }

@@ -3,9 +3,14 @@ using IdentityPackage.Models.Structs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Net;
+using System.Net.Http;
 
 namespace IdentityPackage.Core
 {
+  /// <summary>
+  /// Class is used as a middle-ware class for the HTTP pipeline. When a request is received authorization validation will be done at this
+  /// stage of the pipeline
+  /// </summary>
   public class IdentityAuthorization : IIdentityAuthorization
   {
 
@@ -40,20 +45,31 @@ namespace IdentityPackage.Core
       {
         if (ValidateForToken(context))
         {
-          string? token = context.Request.Headers["Authorization"].FirstOrDefault();
+          string token = context.Request.Headers["Authorization"].FirstOrDefault();
 
-          if (token is null)
+          if (token == null)//No token was provided
           {
             _logger.LogInformation($"Received unauthorized request [Missing Bearer token] at :[{DateTime.UtcNow}]");
             context.Response.Clear();
             context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
             context.Response.WriteAsync("Unauthorized").Wait();
-            return Task.CompletedTask;
+            return Task.CompletedTask;//Do not execute the rest of the request pipeline
           }
           else
           {
-            var test = _tokenServices.ValidateToken(token.Replace("Bearer ",""));
-            return _next.Invoke(context);
+            var validToken = _tokenServices.ValidateToken(token.Replace("Bearer ",""));
+            if (validToken)
+            {
+              return _next.Invoke(context);
+            }
+            else
+            {
+              _logger.LogInformation($"Received unauthorized request [Invalid Bearer token] at :[{DateTime.UtcNow}]");
+              context.Response.Clear();
+              context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+              context.Response.WriteAsync("Unauthorized").Wait();
+              return Task.CompletedTask;//Do not execute the rest of the request pipeline
+            }
           }
         }
         else
@@ -63,10 +79,10 @@ namespace IdentityPackage.Core
       }
       catch (Exception ex)
       {
-        _logger.LogInformation(message: $"An exception occurred while trying to validate route authorization. Message :[{ex.Message}]");
+        _logger.LogError(ex,$"An exception occurred while trying to validate route authorization. Message :[{ex.Message}]");
         context.Response.Clear();
-        context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-        context.Response.WriteAsync("Server error").Wait();
+        context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+        context.Response.WriteAsync("Route not found").Wait();
         return Task.CompletedTask;
       }
     }
@@ -79,11 +95,22 @@ namespace IdentityPackage.Core
     /// <exception cref="NullReferenceException">When the route or action could not be located</exception>
     private bool ValidateForToken(HttpContext context)
     {
-      IReadOnlyDictionary<string, object> ? routeValues = ((dynamic)context.Request).RouteValues as IReadOnlyDictionary<string, object>
+      IReadOnlyDictionary<string, object>? routeValues = ((dynamic)context.Request).RouteValues as IReadOnlyDictionary<string, object>
                                                         ?? throw new NullReferenceException($"{nameof(routeValues)}");
-      
-      string controller = routeValues["Controller"].ToString() ?? throw new NullReferenceException($"{nameof(controller)}");
-      string action = routeValues["Action"].ToString() ?? throw new NullReferenceException($"{nameof(action)}");
+
+      string controller = string.Empty;
+      string action = string.Empty;
+      if (routeValues.Count == 0)
+      {
+        controller = context.Request.Path.Value.Split('/')[1];
+        action = context.Request.Path.Value.Split('/')[2];
+      }
+      else
+      {
+        controller = routeValues["Controller"].ToString() ?? throw new NullReferenceException($"{nameof(controller)}");
+        action = routeValues["Action"].ToString() ?? throw new NullReferenceException($"{nameof(action)}");
+      }
+
       return _controllerActions.ActionInformation.Where(x => x.Controller == controller && x.Action == action).Any();
     }
 

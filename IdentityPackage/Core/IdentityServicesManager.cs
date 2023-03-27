@@ -1,6 +1,5 @@
 ﻿using IdentityPackage.IdentitityInternalServices;
 using IdentityPackage.Models.Database;
-using IdentityPackage.Models.Enums;
 using IdentityPackage.Models.Interfaces;
 using IdentityPackage.Models.ValidationResults;
 using Microsoft.EntityFrameworkCore;
@@ -62,28 +61,37 @@ namespace IdentityPackage.Core
     {
       try
       {
-        
         if (await _context.Users.AnyAsync(x => x.Email == request.Email))
         {
           return new UserRegistrationResult()
           {
-            Succesfull = false,
-            ErrorMessage = {
+            IsSuccesful = false,
+            ErrorMessage = new List<FieldErrorMessage> {
               new()
               {
-                FieldName = nameof(request.Email),
-                ErrorMessage = "User already exists"
+                FieldName = "Email",
+                ErrorMessages = new List<string>(){ "User already exists" }
               }
-            },
-            ErrorType = RegistrationErrorType.UserAlreadyExists
+            }
           };
         }
+        FieldErrorMessage results = _passwordManager.ValidatePassword(request.Password);
+        
+        if(results.ErrorMessages.Count != 0)
+        {
+          return new UserRegistrationResult()
+          {
+            IsSuccesful = false,
+            ErrorMessage = new List<FieldErrorMessage> { results }
+          };
+        }
+
         request.Password = _passwordManager.HashPassword(request.Password);
-        _ = _context.Add(request);
-        _ = await _context.SaveChangesAsync();
+        _context.Add(request);
+        await _context.SaveChangesAsync();
         return new()
         {
-          Succesfull = true
+          IsSuccesful = true
         };
       }
       catch (Exception ex)
@@ -92,7 +100,6 @@ namespace IdentityPackage.Core
         throw;
       }
     }
-
     public async Task<bool> DeactiveAccount(string email)
     {
       try

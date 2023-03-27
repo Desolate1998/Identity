@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AbmMGBUrI+E+xDZJpfn6Qb+jlNZpihHXb+BF/3FanhhHBFPq4hEPlYyVdlefIlvw2tr+DIyUvrUuWQa85+MFGg==",
+  "dgSpecHash": "SQSChOyECuAmsVQRGh2mEbu53V4p6B6vn0AaCFmw+LddfuDn1DgBfmeb8/NW6fCLPYBDSfmGSNtJUpFGaEdt3w==",
   "success": true,
-  "projectFilePath": "C:\\Source\\Socally\\IdentityPackage\\IdentityPackage.csproj",
+  "projectFilePath": "E:\\Source\\Identity\\IdentityPackage\\IdentityPackage.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ruand\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\ruand\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

@@ -1,5 +1,4 @@
-﻿using IdentityPackage.Models.Enums;
-
+﻿
 namespace IdentityPackage.Models.ValidationResults
 {
   /// <summary>
@@ -10,16 +9,11 @@ namespace IdentityPackage.Models.ValidationResults
     /// <summary>
     /// Indication if the registration was successful or not
     /// </summary>
-    public bool Succesfull { get; set; }
+    public bool IsSuccesful { get; set; }
 
     /// <summary>
     /// A list of error messages on why the registration was not successful
     /// </summary>
-    public ICollection<FieldErrorMessage> ErrorMessage { get; set; }
-
-    /// <summary>
-    /// The type of error that occurred not allowing the user to be registers 
-    /// </summary>
-    public RegistrationErrorType ErrorType { get; set; }
+    public ICollection<FieldErrorMessage>? ErrorMessage { get; set; } 
   }
 }

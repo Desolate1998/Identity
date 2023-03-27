@@ -10,3 +10,15 @@ C:\Source\Socally\IdentityPackage\obj\Debug\net6.0\IdentityPackage.dll
 C:\Source\Socally\IdentityPackage\obj\Debug\net6.0\refint\IdentityPackage.dll
 C:\Source\Socally\IdentityPackage\obj\Debug\net6.0\IdentityPackage.pdb
 C:\Source\Socally\IdentityPackage\obj\Debug\net6.0\ref\IdentityPackage.dll
+E:\Source\Identity\IdentityPackage\bin\Debug\net6.0\IdentityPackage.deps.json
+E:\Source\Identity\IdentityPackage\bin\Debug\net6.0\IdentityPackage.dll
+E:\Source\Identity\IdentityPackage\bin\Debug\net6.0\IdentityPackage.pdb
+E:\Source\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.csproj.AssemblyReference.cache
+E:\Source\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.GeneratedMSBuildEditorConfig.editorconfig
+E:\Source\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.AssemblyInfoInputs.cache
+E:\Source\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.AssemblyInfo.cs
+E:\Source\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.csproj.CoreCompileInputs.cache
+E:\Source\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.dll
+E:\Source\Identity\IdentityPackage\obj\Debug\net6.0\refint\IdentityPackage.dll
+E:\Source\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.pdb
+E:\Source\Identity\IdentityPackage\obj\Debug\net6.0\ref\IdentityPackage.dll

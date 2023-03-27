@@ -2,6 +2,9 @@
 
 namespace IdentityPackage.Models.Interfaces
 {
+  /// <summary>
+  /// The identity authorization middle ware 
+  /// </summary>
   internal interface IIdentityAuthorization
   {
     /// <summary>

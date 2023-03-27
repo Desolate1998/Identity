@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace IdentityPackage.Models.Attributes
 {
+  /// <summary>
+  /// Allow the user to be unauthorized for the current endpoint
+  /// </summary>
   public class AllowUnauthorizeAttribute : Attribute
   {
     public AllowUnauthorizeAttribute()

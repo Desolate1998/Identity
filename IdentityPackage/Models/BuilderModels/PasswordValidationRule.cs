@@ -1,5 +1,8 @@
 ﻿namespace IdentityPackage.Models.BuilderModels
 {
+  /// <summary>
+  /// Default rules for password validation 
+  /// </summary>
   public class PasswordValidationRule
   {
     /// <summary>

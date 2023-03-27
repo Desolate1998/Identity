@@ -12,13 +12,13 @@ namespace IdentityPackage.Models.Database
     /// The user password hash
     /// </summary>
     [Column("Password")]
-    public string Password { get; set; }
+    public string Password { get; set; } = string.Empty;
 
     /// <summary>
     /// The user email
     /// </summary>
     [Column("Email")]
-    public string Email { get; set; }
+    public string Email { get; set; } = string.Empty;
 
     /// <summary>
     /// Indication if the email was confirmed or not
@@ -30,7 +30,7 @@ namespace IdentityPackage.Models.Database
     /// The user phone number
     /// </summary>
     [Column("Phone_Number")]
-    public string PhoneNumber { get; set; }
+    public string PhoneNumber { get; set; } = string.Empty;
 
     /// <summary>
     /// Indication if the email was confirmed or not
@@ -54,7 +54,7 @@ namespace IdentityPackage.Models.Database
     /// The time after they are allowed to retry login
     /// </summary>
     [Column("Failed_Timout_Time")]
-    public DateTime FailedTimoutTime { get; set; }
+    public DateTime? FailedTimoutTime { get; set; }
 
     /// <summary>
     /// Indication if the account is active or not
