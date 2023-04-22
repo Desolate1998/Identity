@@ -47,8 +47,32 @@ namespace IdentityPackage.Core
     /// <param name="email">The user email</param>
     /// <param name="password">The user password</param>
     /// <returns><see cref="UserLoginResult"/> A model containing the login results</returns>
-    public Task<UserLoginResult> SignIn(string email, string password)
+    public async Task<UserLoginResult> SignIn(string email, string password)
     {
+      var user = await _context.Users.Where(x => x.Email == email).FirstOrDefaultAsync();
+      
+      List<TUser> users = await _context.Users.ToListAsync();
+
+                 
+      if (user.FailedTimoutTime != null && user.FailedTimoutTime < DateTime.UtcNow)
+      {
+        return new()
+        {
+          IsSuccessful = false,
+          //TODO - Add time remaining
+          Message = $"Multiple login attempts failed. Please try again later"
+        };
+      }
+
+      if(user.Password != _passwordManager.HashPassword(password))
+      {
+        
+      }
+      else
+      {
+        return new() { IsSuccessful = true };
+      }
+      
       throw new NotImplementedException();
     }
 
@@ -65,7 +89,7 @@ namespace IdentityPackage.Core
         {
           return new UserRegistrationResult()
           {
-            IsSuccesful = false,
+            IsSuccessful = false,
             ErrorMessage = new List<FieldErrorMessage> {
               new()
               {
@@ -81,7 +105,7 @@ namespace IdentityPackage.Core
         {
           return new UserRegistrationResult()
           {
-            IsSuccesful = false,
+            IsSuccessful = false,
             ErrorMessage = new List<FieldErrorMessage> { results }
           };
         }
@@ -91,7 +115,7 @@ namespace IdentityPackage.Core
         await _context.SaveChangesAsync();
         return new()
         {
-          IsSuccesful = true
+          IsSuccessful = true
         };
       }
       catch (Exception ex)

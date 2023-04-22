@@ -9,7 +9,7 @@ namespace IdentityPackage.Models.ValidationResults
     /// <summary>
     /// Indication if the registration was successful or not
     /// </summary>
-    public bool IsSuccesful { get; set; }
+    public bool IsSuccessful { get; set; }
 
     /// <summary>
     /// A list of error messages on why the registration was not successful
