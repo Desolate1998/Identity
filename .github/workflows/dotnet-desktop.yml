@@ -18,8 +18,7 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
-      Solution_Name: identity.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: ./IdentityPackage
+      Solution_Name: identity.sln                      
 
     steps:
     - name: Checkout
@@ -40,4 +39,5 @@ jobs:
     - name: Publish  
       uses: brandedoutcast/publish-nuget@v2.5.2  
       with:   
+       PROJECT_FILE_PATH: ./IdentityPackage
        NUGET_KEY: ${{secrets.NUGET_API_KEY}} 
