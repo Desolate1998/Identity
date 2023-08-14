@@ -113,6 +113,5 @@ namespace IdentityPackage.Core
 
       return _controllerActions.ActionInformation.Where(x => x.Controller == controller && x.Action == action).Any();
     }
-
   }
 }

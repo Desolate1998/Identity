@@ -4,6 +4,16 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
+    <Title>api-Identity</Title>
+    <PackageTags>C#, Identity, JWT, Entity Framework</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<PackageId>Critext.Identity</PackageId>
+	<Version>1.0.0</Version>
+	<Authors>Ruan de Jongh</Authors>
+	<Company>Critext</Company>
+	<Description>Easy to integrate identity management using EF core</Description>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<RepositoryUrl>https://github.com/Desolate1998/Identity</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

@@ -11,7 +11,5 @@ namespace IdentityPackage.Core
     }
 
     public DbSet<TUser> Users { get; set; }
-
   }
-
 }
