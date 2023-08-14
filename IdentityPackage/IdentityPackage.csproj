@@ -17,16 +17,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Enums\**" />
+    <EmbeddedResource Remove="Models\Enums\**" />
+    <None Remove="Models\Enums\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.13" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\Enums\" />
   </ItemGroup>
 
 </Project>
