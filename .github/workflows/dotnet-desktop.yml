@@ -31,12 +31,14 @@ jobs:
 
     - name: Install dependencies
       run: dotnet restore
+      working-directory: IdentityPackage
 
     - name: build
       run: dotnet build --configuration Release --no-restore  
+      working-directory: IdentityPackage
 
     - name: Publish  
       uses: brandedoutcast/publish-nuget@v2.5.2  
       with:   
-       PROJECT_FILE_PATH: application_release/IdentityPackage.csproj
+       PROJECT_FILE_PATH: IdentityPackage/IdentityPackage.csproj
        NUGET_KEY: ${{secrets.NUGET_API_KEY}} 
