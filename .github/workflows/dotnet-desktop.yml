@@ -33,7 +33,7 @@ jobs:
       working-directory: IdentityPackage
 
     - name: build
-      run: dotnet build --configuration Release --no-restore -p:PackageVersion=$NOW 
+      run: dotnet build --configuration Release --no-restore -p:PackageVersion=$(build.BuildNumber)'
       working-directory: IdentityPackage
 
     - name: Publish  
