@@ -3,9 +3,9 @@ name: $(Year:yyyy).$(Month).$(DayOfMonth).$(BuildID)
 
 on:
   push:
-    branches: [ "main","staging","develop" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main","staging","develop" ]
+    branches: [ "main" ]
 
 jobs:
   build:
