@@ -11,7 +11,7 @@ jobs:
   build:
     strategy:
       matrix:
-        configuration: [Debug, Release]
+        configuration: [Release]
     runs-on: windows-latest  
     env:
       Solution_Name: identity.sln                      
@@ -41,4 +41,5 @@ jobs:
       uses: brandedoutcast/publish-nuget@v2.5.2  
       with:   
        PROJECT_FILE_PATH: IdentityPackage/IdentityPackage.csproj
-       NUGET_KEY: ${{secrets.NUGET_API_KEY}} 
+       NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+       VERSION_FILE_PATH: ${{ env.BUILD_NUMBER }}
