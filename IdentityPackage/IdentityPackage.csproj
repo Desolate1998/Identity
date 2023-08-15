@@ -14,7 +14,7 @@
 	<Description>Easy to integrate identity management using EF core</Description>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<RepositoryUrl>https://github.com/Desolate1998/Identity</RepositoryUrl>
-	<PackageVersion>$([System.DateTime]::Now.ToString("yyyy.MM.dd.HHmm"))</PackageVersion>
+	<PackageVersion>$(PackageVersion)</PackageVersion>
 	<AssemblyVersion>$([System.DateTime]::Now.ToString("yyy.MM.dd.HHmm"))</AssemblyVersion>
   </PropertyGroup>
 

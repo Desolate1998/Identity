@@ -6337,7 +6337,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "2023.8.15.2132",
+    "version": "2023.8.15.2150",
     "restore": {
       "projectUniqueName": "C:\\Source\\Identity\\IdentityPackage\\IdentityPackage.csproj",
       "projectName": "Critext.Identity",
