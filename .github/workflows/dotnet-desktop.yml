@@ -38,8 +38,9 @@ jobs:
       working-directory: IdentityPackage
 
     - name: Publish  
-      uses: brandedoutcast/publish-nuget@v2.5.2  
+      uses: brandedoutcast/publish-nuget@v2.5.5  
       with:   
        PROJECT_FILE_PATH: IdentityPackage/IdentityPackage.csproj
        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+       PACKAGE_NAME: Core
        VERSION_STATIC: 1.0.${{ env.BUILD_NUMBER }}
