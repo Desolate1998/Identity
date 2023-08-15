@@ -15,6 +15,7 @@ jobs:
     runs-on: windows-latest  
     env:
       Solution_Name: identity.sln                      
+      BUILD_NUMBER: ${{ github.run_number }}
 
     steps:
     - name: Checkout
@@ -33,7 +34,7 @@ jobs:
       working-directory: IdentityPackage
 
     - name: build
-      run: dotnet build --configuration Release --no-restore -p:PackageVersion='$(build.BuildNumber)'
+      run: dotnet build --configuration Release --no-restore -p:PackageVersion='${{ env.BUILD_NUMBER }}'
       working-directory: IdentityPackage
 
     - name: Publish  
