@@ -1,5 +1,5 @@
 # set the build number
-name: $(Year:yyyy).$(Month).$(DayOfMonth).$(BuildID)
+name: .NET Core Desktop
 
 on:
   push:
@@ -33,7 +33,7 @@ jobs:
       working-directory: IdentityPackage
 
     - name: build
-      run: dotnet build --configuration Release --no-restore -p:PackageVersion=$(BUILD_TIMESTAMP) 
+      run: dotnet build --configuration Release --no-restore -p:PackageVersion=$NOW 
       working-directory: IdentityPackage
 
     - name: Publish  
