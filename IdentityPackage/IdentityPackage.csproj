@@ -15,7 +15,7 @@
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<RepositoryUrl>https://github.com/Desolate1998/Identity</RepositoryUrl>
 	<PackageVersion>$(PackageVersion)</PackageVersion>
-	<AssemblyVersion>$([System.DateTime]::Now.ToString("yyy.MM.dd.HHmm"))</AssemblyVersion>
+	<AssemblyVersion>$(PackageVersion)</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
