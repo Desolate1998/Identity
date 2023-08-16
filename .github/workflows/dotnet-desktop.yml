@@ -39,8 +39,7 @@ jobs:
       run: cd ..
 
     - name: publish to nuget
-      run: nuget push *.nupkg ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
-      working-directory: bin\Release\
+      run: nuget push Critext.Identity.1.0.${{ env.BUILD_NUMBER }}.nupkg ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
 
 
     #- name: Publish  
