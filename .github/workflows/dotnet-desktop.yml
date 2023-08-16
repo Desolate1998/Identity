@@ -31,7 +31,6 @@ jobs:
 
     - name: Install dependencies
       run: dotnet restore
-      working-directory: IdentityPackage
 
     - name: build
       run: dotnet build --configuration Release --no-restore -p:PackageVersion=1.0.${{ env.BUILD_NUMBER }}
