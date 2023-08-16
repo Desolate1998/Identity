@@ -23,9 +23,6 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Install nuget
-      uses: NuGetToolInstaller@1
-
     # Install the .NET Core workload
     - name: Install .NET Core
       uses: actions/setup-dotnet@v3
