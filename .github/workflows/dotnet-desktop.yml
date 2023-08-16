@@ -35,15 +35,13 @@ jobs:
 
     - name: build
       run: dotnet build --configuration Release --no-restore -p:PackageVersion=1.0.${{ env.BUILD_NUMBER }}
-      working-directory: IdentityPackage
 
-    - name: List Files Action
-      uses: mirko-felice/list-files-action@v3.0.5
-            
+    - name: cd out
+      run: cd ..
 
     - name: publish to nuget
       run: nuget push *.nupkg ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
-      working-directory: ..\bin\Release\
+      working-directory: bin\Release\
 
 
     #- name: Publish  
