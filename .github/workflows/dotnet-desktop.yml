@@ -23,6 +23,9 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Install nuget
+      uses: NuGetToolInstaller@1
+
     # Install the .NET Core workload
     - name: Install .NET Core
       uses: actions/setup-dotnet@v3
@@ -37,9 +40,12 @@ jobs:
       run: dotnet build --configuration Release --no-restore -p:PackageVersion=1.0.${{ env.BUILD_NUMBER }}
       working-directory: IdentityPackage
 
-    - name: Publish  
-      uses: brandedoutcast/publish-nuget@v2.5.5  
-      with:   
-       PROJECT_FILE_PATH: IdentityPackage/IdentityPackage.csproj
-       NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-       VERSION_STATIC: 1.0.${{ env.BUILD_NUMBER }}
+
+
+
+    #- name: Publish  
+    #  uses: brandedoutcast/publish-nuget@v2.5.5  
+    #  with:   
+    #   PROJECT_FILE_PATH: IdentityPackage/IdentityPackage.csproj
+    #   NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+    #   VERSION_STATIC: 1.0.${{ env.BUILD_NUMBER }}
