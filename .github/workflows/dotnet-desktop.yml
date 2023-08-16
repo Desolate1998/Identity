@@ -39,7 +39,7 @@ jobs:
 
     - name: publish to nuget
       run: nuget push *.nupkg ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
-      working-directory: bin\Release\
+      working-directory: ..\bin\Release\
 
 
     #- name: Publish  
