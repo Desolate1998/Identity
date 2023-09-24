@@ -47,7 +47,7 @@
     /// <summary>
     /// Message displayed when the lowerCase requirements are not met
     /// </summary>
-    public string LowerCaseCharacterMessage { get; set; } = "Password does not contain lower special character";
+    public string LowerCaseCharacterMessage { get; set; } = "Password does not contain lower case character";
 
     /// <summary>
     /// When enabled will ensure that the password contains uppercase validation

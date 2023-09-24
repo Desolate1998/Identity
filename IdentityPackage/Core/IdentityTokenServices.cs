@@ -49,8 +49,8 @@ namespace IdentityPackage.Core
         {
           ValidateIssuerSigningKey = true,
           IssuerSigningKey = new SymmetricSecurityKey(key),
-          ValidateIssuer = false,
-          ValidateAudience = false,
+          ValidateIssuer = true,
+          ValidateAudience = true,
           ClockSkew = TimeSpan.Zero
         }, out SecurityToken validatedToken);
 

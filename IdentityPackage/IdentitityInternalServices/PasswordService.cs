@@ -5,9 +5,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace IdentityPackage.IdentitityInternalServices
+namespace IdentityPackage.IdentityInternalServices
 {
-  internal class PasswordService: IPasswordService
+  public class PasswordService: IPasswordService
   {
     private readonly IdentityDbOptions _options;
     private readonly string _salt;
@@ -55,12 +55,12 @@ namespace IdentityPackage.IdentitityInternalServices
       FieldErrorMessage errors = new()
       {
         ErrorMessages = new List<string>(),
-        FieldName = "Password"
+        FieldName = "password"
       };
 
       if (password.Length < 0 || string.IsNullOrWhiteSpace(password))
       {
-        errors.ErrorMessages.Add("Invalid password");
+        errors.ErrorMessages.Add("Invalid password, password cannot be empty");
       }
 
       #region Lower case

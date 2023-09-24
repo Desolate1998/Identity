@@ -17,7 +17,6 @@ namespace IdentityPackage.Models.Attributes
     public AllowUnauthorizeAttribute()
     {
 
-
     }
   }
 }

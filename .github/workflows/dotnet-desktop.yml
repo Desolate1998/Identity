@@ -1,5 +1,5 @@
-# set the build number
-name: .NET Core Desktop
+﻿# set the build number
+name: To lazy to add a git message 😑
 
 on:
   push:
