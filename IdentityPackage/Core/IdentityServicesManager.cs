@@ -60,39 +60,75 @@ namespace IdentityPackage.Core
                 return new()
                 {
                     IsSuccessful = false,
+                    TimeRemaining = -1,
                     Message = $"User does not exist"
                 };
             }
 
-            if (_options.LockOutUserEnabled && (user.AccountLockedOut || (user.FailedTimoutTime != null && user.FailedTimoutTime < DateTime.UtcNow)))
+            if (_options.LockOutUserEnabled && user.AccountLockedOut)
             {
-                TimeSpan span = user.FailedTimoutTime.Value - DateTime.UtcNow;
-                return new()
+                if ((user.FailedTimoutTime != null && user.FailedTimoutTime > DateTime.UtcNow))
                 {
-                    IsSuccessful = false,
-                    TimeRemaining = (int)span.TotalSeconds,
-                    Message = $"Multiple login attempts failed. Please try again later"
-                };
+
+                    TimeSpan span = user.FailedTimoutTime.Value - DateTime.UtcNow;
+                    return new()
+                    {
+                        IsSuccessful = false,
+                        TimeRemaining = (int)span.TotalMinutes,
+                        Message = $"Multiple login attempts failed. Please try again later"
+                    };
+                }
             }
-            else if (user.Password != _passwordManager.HashPassword(request.Password))
+            if (user.Password != _passwordManager.HashPassword(request.Password))
             {
                 if (_options.LockOutUserEnabled)
                 {
                     user.LoginFailedCount++;
-                    if (user.LoginFailedCount == _options.LockoutAfter)
+                    if (user.LoginFailedCount >= _options.LockoutAfter)
                     {
-                        user.FailedTimoutTime = DateTime.UtcNow.AddMinutes(_options.LockFailTimer[]);
+                        if(_options.LockoutAfter == user.LoginFailedCount)
+                        {
+                            user.FailedTimoutTime = DateTime.UtcNow.AddMinutes(_options.LockFailTimer[0]);
+                        }
+                        else if((user.LoginFailedCount - _options.LockoutAfter) <= _options.LockFailTimer.Count+1)
+                        {
+                            user.FailedTimoutTime = DateTime.UtcNow
+                                .AddMinutes(_options.LockFailTimer[user.LoginFailedCount - _options.LockoutAfter]);
+                        }
+                        else
+                        {
+                            user.FailedTimoutTime = DateTime.UtcNow.AddMinutes(_options.LockFailTimer[^0]);
+                        }
+                        user.AccountLockedOut = true;
+                        _context.SaveChanges();
+                        TimeSpan span = user.FailedTimoutTime.Value - DateTime.UtcNow;
+
+                        return new()
+                        {
+                            IsSuccessful = false,
+                            TimeRemaining = (int)span.TotalMinutes,
+                            Message = $"Multiple login attempts failed. Please try again later"
+                        };
                     }
                 }
-
+                _context.SaveChanges();
                 return new()
                 {
                     IsSuccessful = false,
+                    TimeRemaining = -1,
                     Message = $"Credentials invalid"
                 };
             }
             else
             {
+                if (user.LoginFailedCount > 0)
+                {
+                    user.AccountLockedOut = false;
+                    user.FailedTimoutTime = null;
+                    user.LoginFailedCount = 0;
+                    _context.SaveChanges();
+                }
+
                 return new() { IsSuccessful = true };
             }
         }
@@ -161,5 +197,6 @@ namespace IdentityPackage.Core
                 throw;
             }
         }
+
     }
 }
