@@ -1,10 +1,10 @@
-﻿namespace IdentityPackage.Models.BuilderModels
+﻿namespace IdentityPackage.Models.BuilderModels;
+
+/// <summary>
+/// Identity token setup 
+/// </summary>
+public class IdentityTokenSetup
 {
-  /// <summary>
-  /// Identity token setup 
-  /// </summary>
-  public class IdentityTokenSetup
-  {
     /// <summary>
     /// Validates the token life time
     /// </summary>
@@ -14,5 +14,4 @@
     /// Key used to generate JWT token
     /// </summary>
     public string IssuerSigningKey { get; set; } = string.Empty;
-  }
 }

@@ -36,3 +36,17 @@ C:\Source\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.pdb
 C:\Source\Identity\IdentityPackage\obj\Debug\net6.0\ref\IdentityPackage.dll
 C:\Source\Identity\IdentityPackage\bin\Debug\net6.0\IdentityPackage.runtimeconfig.json
 C:\Source\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.genruntimeconfig.cache
+C:\Users\ruand\source\repos\Desolate1998\Identity\IdentityPackage\bin\Debug\net6.0\IdentityPackage.deps.json
+C:\Users\ruand\source\repos\Desolate1998\Identity\IdentityPackage\bin\Debug\net6.0\IdentityPackage.runtimeconfig.json
+C:\Users\ruand\source\repos\Desolate1998\Identity\IdentityPackage\bin\Debug\net6.0\IdentityPackage.dll
+C:\Users\ruand\source\repos\Desolate1998\Identity\IdentityPackage\bin\Debug\net6.0\IdentityPackage.pdb
+C:\Users\ruand\source\repos\Desolate1998\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.csproj.AssemblyReference.cache
+C:\Users\ruand\source\repos\Desolate1998\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ruand\source\repos\Desolate1998\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.AssemblyInfoInputs.cache
+C:\Users\ruand\source\repos\Desolate1998\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.AssemblyInfo.cs
+C:\Users\ruand\source\repos\Desolate1998\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.csproj.CoreCompileInputs.cache
+C:\Users\ruand\source\repos\Desolate1998\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.dll
+C:\Users\ruand\source\repos\Desolate1998\Identity\IdentityPackage\obj\Debug\net6.0\refint\IdentityPackage.dll
+C:\Users\ruand\source\repos\Desolate1998\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.pdb
+C:\Users\ruand\source\repos\Desolate1998\Identity\IdentityPackage\obj\Debug\net6.0\IdentityPackage.genruntimeconfig.cache
+C:\Users\ruand\source\repos\Desolate1998\Identity\IdentityPackage\obj\Debug\net6.0\ref\IdentityPackage.dll

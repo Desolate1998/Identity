@@ -1,10 +1,10 @@
-﻿namespace IdentityPackage.Models.BuilderModels
+﻿namespace IdentityPackage.Models.BuilderModels;
+
+/// <summary>
+/// Default rules for password validation 
+/// </summary>
+public class PasswordValidationRule
 {
-  /// <summary>
-  /// Default rules for password validation 
-  /// </summary>
-  public class PasswordValidationRule
-  {
     /// <summary>
     /// The max length of the password, by default it is null.
     /// When set to null there will be no max length validation
@@ -60,5 +60,4 @@
     /// Message displayed when the uppercase requirements are not met
     /// </summary>
     public string UpperCharacterMessage { get; set; } = "Password does not contain lower special character";
-  }
 }

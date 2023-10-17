@@ -16,21 +16,23 @@ namespace IdentityPackage.Core
       _tokenSettings = tokenSettings;
     }
 
-    public string CreateToken(IEnumerable<Claim> claims, DateTime expiryDate = default)
+    public string CreateToken(IEnumerable<Claim> claims, string issuer, string audience, DateTime expiryDate = default)
     {
       if (expiryDate == default)
       {
-        expiryDate = DateTime.UtcNow.AddDays(30).Date;
+        expiryDate = DateTime.UtcNow.AddHours(2).Date;
       }
 
       SymmetricSecurityKey key = new(Encoding.UTF8.GetBytes(_tokenSettings.IssuerSigningKey));
-      SigningCredentials credentials = new(key, SecurityAlgorithms.HmacSha512Signature);
+      SigningCredentials credentials = new(key, SecurityAlgorithms.HmacSha256);
       SecurityTokenDescriptor tokenDescriptor = new()
       {
         Subject = new ClaimsIdentity(claims),
         Expires = expiryDate,
         SigningCredentials = credentials,
+        Issuer = issuer,
         IssuedAt = DateTime.UtcNow,
+        Audience = audience,
       };
 
       JwtSecurityTokenHandler tokenHandler = new();

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Source\\Identity\\IdentityPackage\\IdentityPackage.csproj": {}
+    "C:\\Users\\ruand\\source\\repos\\Desolate1998\\Identity\\IdentityPackage\\IdentityPackage.csproj": {}
   },
   "projects": {
-    "C:\\Source\\Identity\\IdentityPackage\\IdentityPackage.csproj": {
+    "C:\\Users\\ruand\\source\\repos\\Desolate1998\\Identity\\IdentityPackage\\IdentityPackage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Source\\Identity\\IdentityPackage\\IdentityPackage.csproj",
+        "projectUniqueName": "C:\\Users\\ruand\\source\\repos\\Desolate1998\\Identity\\IdentityPackage\\IdentityPackage.csproj",
         "projectName": "Critext.Identity",
-        "projectPath": "C:\\Source\\Identity\\IdentityPackage\\IdentityPackage.csproj",
+        "projectPath": "C:\\Users\\ruand\\source\\repos\\Desolate1998\\Identity\\IdentityPackage\\IdentityPackage.csproj",
         "packagesPath": "C:\\Users\\ruand\\.nuget\\packages\\",
-        "outputPath": "C:\\Source\\Identity\\IdentityPackage\\obj\\",
+        "outputPath": "C:\\Users\\ruand\\source\\repos\\Desolate1998\\Identity\\IdentityPackage\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -22,7 +22,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -30,8 +30,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -42,8 +42,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.AspNetCore.Http.Abstractions": {
               "target": "Package",
@@ -104,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
